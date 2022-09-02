@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="css/style-ccc.css" rel="stylesheet" />
+    <title><script>{coalpay}</script> - Coal County Clicker</title>
+  </head>
+  <body>
+    <div class="row row-cols-md-3 gap-1 p-3 bgimg">
+      <div class="p-2 card clicker text-bg-dark bg-custom-1">
+
+        <img src="img/miner_up.png" class="miner" alt="Miner" id="miner" onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseover="mouseOver()" onmouseout="mouseUp()" height="300px" width="300px" />
+          <a onmousedown="mouseDown()" onmouseup="mouseUp()">⬆️ ⬆️ Click to Mine ⬆️ ⬆️</a>
+      </div>
+      <div class="p-2 flex-grow-1 card bg-custom-2">
+        <h1>⚒️ Coal County Clicker ⚒️</h1>
+        <h3>Total Coal Mined: <span id="coals"></span></h3><br />
+        <p>
+        Click to mine coal.  Currently earning <span id="coal_earn">1</span> coal-per-click (cpc)<br />
+        Currently earning: <span id="current_cps_earn">0</span> (cps)<br />
+        <i>You may purchase additional miners, facilities and upgrades with the coal that you mined.</i>
+        </p>
+        <hr/>
+        <!-- Quotes -->
+        <h4><div id="jibjab"></div></h4>
+        <hr />
+        <h3>Awards</h3>
+        <!-- acheivements -->
+        <div class="acheivements" id="acheivements"></div>
+      </div>
+      <div class="p-2 flex-grow-1 card text-bg-dark">
+        <!-- -->
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-upgrade" type="button" role="tab" aria-controls="pills-upgrade" aria-selected="false">Upgrades</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-about-tab" data-bs-toggle="pill" data-bs-target="#pills-about" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Details</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent w-auto">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+          <!--home -->
+            <p>
+              ⚒️Additional Miners: <span id="helper"></span>
+              <button type="button" name="button" id="helperBuy" onclick="helperAdd();" style="visibility: hidden" class="btn btn-warning btn-sm">Buy: 10</button><br />
+              <i>Hired help.  <br />
+                Currently Earning: <span id="helper_earn">0</span> coals-per-second(cps)</i>
+              <hr />
+              🚃Mine Cart: <span id="mine_cart"></span>
+              <button type="button" name="button" id="mine_cartBuy" onclick="mine_cartAdd();" style="visibility: hidden" class="btn btn-warning btn-sm">Buy: 100</button><br />
+              <i>Up mine production with a cart.  Earning: <span id="mine_cart_earn">0</span> (cps)</i>
+              <hr />
+              🏗️Crane: <span id="crane"></span>
+              <button type="button" name="button" id="craneBuy" onclick="craneAdd();" style="visibility: hidden" class="btn btn-warning btn-sm">Buy: 1000</button><br />
+              <i>Superior digging with a full sized crane.  Earning: <span id="crane_earn">0</span> (cps)</i>
+              <hr />
+              🏭Breaker: <span id="breaker"></span>
+              <button type="button" name="button" id="breakerBuy" onclick="breakerAdd();" style="visibility: hidden" class="btn btn-warning btn-sm">Buy: 10000</button><br />
+              <i>A coal breaker facility processing large amounts of coal consistently.  Earning: <span id="breaker_earn">0</span> (cps)</i>
+              <hr />
+              🌎Strip Mine: <span id="strip_mine"></span>
+              <button type="button" name="button" id="strip_mineBuy" onclick="strip_mineAdd();" style="visibility: hidden" class="btn btn-warning btn-sm">Buy: 100000</button><br />
+              <i>Giant strip mine pulling every last mineral out of the ground for a sweet coal profit.  <span id="strip_mine_earn">Begining at 1 million coal-per-second</span> (cps)</i>
+            </p>
+          </div>
+          <!--upgrade -->
+          <div class="tab-pane fade" id="pills-upgrade" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            <h3>Purchase Available Upgrades</h3>
+            <p>
+                ⛏️Upgrade Miner: <button type="button" name="button" id="clickerUp" onclick="clickerUp();" style="visibility: hidden" class="btn btn-warning btn-sm">2x upgrade</button></h3>
+              <hr />
+                ⚒️Ugrade Helpers: <button type="button" name="button" id="helperBuyUpgrade" onclick="helperBuyUpgrade();" style="visibility: hidden" class="btn btn-warning btn-sm">2x Upgrade</button>
+              <hr />
+                🚃Upgrade Mine Carts: <button type="button" name="button" id="mine_cartBuyUpgrade" onclick="mine_cartBuyUpgrade();" style="visibility: hidden" class="btn btn-warning btn-sm">2x Upgrade</button>
+              <hr />
+                🏗️Upgrade Cranes: <button type="button" name="button" id="craneBuyUpgrade" onclick="craneBuyUpgrade();" style="visibility: hidden" class="btn btn-warning btn-sm">2x Upgrade</button>
+              <hr />
+                🏭Upgrade Breakers: <button type="button" name="button" id="breakerBuyUpgrade" onclick="breakerBuyUpgrade();" style="visibility: hidden" class="btn btn-warning btn-sm">2x Upgrade</button>
+              <hr />
+                🌎Upgrade Stripmine: <button type="button" name="button" id="strip_mineBuyUpgrade" onclick="strip_mineBuyUpgrade();" style="visibility: hidden" class="btn btn-warning btn-sm">2x Upgrade</button>
+              <hr />
+            </p>
+          </div>
+          <!-- About -->
+          <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab" tabindex="0">
+            <h3>About The Game:</h3>
+            <p>
+              Coal County Clicker is a humorous game based on the popular idle-clicker game genre (cookie clicker, hero clicker).  The intent is to have fun with JavaScript, and show off the complexity of aggregatting math functions, and my ability to manipulate them as a developer, in an engaging way.
+            </p>
+            <p>
+              This game is set on EASY mode, for the intent of showing off what it can do.  Typically the payouts would take much longer in a clicker game, but I'm assuming whomever would look over this would want to see what it can do in a few minutes, not hours or days.  If
+              you want to see my work please visit <a href="http://furnacestreetstudio.com" target="_blank">FurnaceStreetStudio.</a>
+            </p>
+
+          </div>
+        </div>
+        <!-- -->
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <!-- ⛏️ First Click -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto" id='toastHead'>⛏️ First Click</strong>
+      <small>Acheivement Unlocked!</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id="toastBody">
+      Every successful coal mine begins with the first shovel's scoop.
+    </div>
+  </div>
+</div>
+<!-- '⚒️ Helping Hand' -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToastHelper" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+  <strong class="me-auto" id='toastHead'>⚒️ Helping Hand</strong>
+  <small>Acheivement Unlocked!</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body" id="toastBody">
+  We get by with a little help from our friends.  We dig coal with a little help from our friends.
+</div>
+</div>
+</div>
+<!-- 🚃Transportation -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToasttransportation" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+  <strong class="me-auto" id='toastHead'>🚃 Transportation</strong>
+  <small>Acheivement Unlocked!</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body" id="toastBody">
+  No more dragging buckets for you.  Get that coal on the cart track!
+</div>
+</div>
+</div>
+<!-- 🏗️A Quick Pick-Me-Up -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToastCrane" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+  <strong class="me-auto" id='toastHead'>🏗️A Quick Pick-Me-Up</strong>
+  <small>Acheivement Unlocked!</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body" id="toastBody">
+  YO BOT, nice shovel!
+</div>
+</div>
+</div>
+<!-- 🏭Industrializing -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToastBreaker" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+  <strong class="me-auto" id='toastHead'>🏭Industrializing</strong>
+  <small>Acheivement Unlocked!</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body" id="toastBody">
+  Time to monopolize.
+</div>
+</div>
+</div>
+<!-- 🌎Big Business -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToastStripMine" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+  <strong class="me-auto" id='toastHead'>🌎Big Business</strong>
+  <small>Acheivement Unlocked!</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body" id="toastBody">
+  .....and now....WORLD DOMINATION!
+</div>
+</div>
+</div>
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2019 - <script type="text/javascript">document.write(new Date().getFullYear());</script> <a href="https://furnacestreetstudio.itch.io/" data-toggle="tooltip" title="Visit Furnace Street Studio for more!">Furnace Street Studio.</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+    <script type="text/javascript" src="js/index.js" type="text/javascript"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+/* CoalCountyClicker */
+
+body {
+  font-family: sans-serif;
+  background-color: #9ddaed;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px #85bfe5;
+}
+h4 {
+  color: #31363f;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.5em;
+}
+.card-body {
+  width: 40%;
+}
+
+.title {
+  text-align: center;
+}
+
+.clicker {
+    text-align: center;
+}
+.bgimg {
+  background-image: url('../img/pixelbg.png');
+}
+.bg-custom-2 {
+  background-color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.bg-custom-1 {
+  background-color: rgba(0, 0, 0, 0.5)!important;
+}
+.miner {
+  width: 100%;
+  height: auto;
+}
