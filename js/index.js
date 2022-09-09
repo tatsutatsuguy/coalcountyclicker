@@ -1,4 +1,4 @@
-//Coal County Cliker -  JS FILE
+//Coal County Clicker -  JS FILE
 
 let coalpay = 0;
 let clickUpgrade = 1;
